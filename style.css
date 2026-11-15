@@ -165,6 +165,22 @@ html {
     margin: 18px 0;
     font-weight: 600;
     color: var(--brand);
+    width: 0ch;
+    text-wrap: nowrap;
+    overflow: hidden;
+    border-right: 5px solid var(--brand);
+    animation:
+        typing 3s 1.1s steps(33) infinite alternate-reverse;
+}
+
+@keyframes typing {
+    from {
+        width: 0ch;
+    }
+
+    to {
+        width: 29ch;
+    }
 }
 
 .container-fluid main .main-left p {
@@ -366,18 +382,167 @@ html {
     align-items: center;
 }
 
+/* ============ ABOUT: TERMINAL CARD ============ */
 .container-fluid .section1 .section-right-1 .section-card {
     width: 400px;
-    /* height: 100px; */
     height: 100%;
-    /* border: 1px solid var(--border); */
-    /* border: 1px solid black; */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
     background-color: var(--card);
-    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-    /* background-color: var(--card); */
-    /* background-color: var(--ink); */
-    /* background-color: #000000; */
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    /* offset block like the hero frame + your normal card shadow */
+    box-shadow: 14px 14px 0 var(--brand-soft), rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.section-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 12px 16px;
+    background: #eef2f9;
+    border-bottom: 1px solid var(--border);
+}
+
+.section-circle-parent {
+    display: flex;
+    gap: 7px;
+}
+
+.section-circle-parent .circle {
+    width: 11px;
+    height: 11px;
+    border-radius: 50%;
+}
+
+.section-circle-parent .circle:nth-child(1) {
+    background: #ff5f57;
+}
+
+.section-circle-parent .circle:nth-child(2) {
+    background: #febc2e;
+}
+
+.section-circle-parent .circle:nth-child(3) {
+    background: #28c840;
+}
+
+.card-title {
+    font-family: "Courier New", monospace;
+    font-size: 12.5px;
+    color: var(--icon);
+}
+
+/* photo */
+.card-photo {
+    position: relative;
+    flex: 1;
+    min-height: 240px;
+}
+
+.card-photo img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center top;
+    display: block;
+}
+
+/* fade the photo into the white terminal area */
+.card-photo::after {
+    content: "";
+    position: absolute;
+    inset: auto 0 0 0;
+    height: 80px;
+    background: linear-gradient(to bottom, transparent, var(--card));
+}
+
+/* terminal */
+.terminal {
+    margin: 0 16px 16px;
+    padding: 14px 18px 18px;
+    min-height: 150px;
+    background: #eef2f9;
+    border: 1px solid var(--border);
     border-radius: 10px;
+    font-family: "Courier New", monospace;
+    font-size: 14.5px;
+    color: var(--text);
+}
+
+.terminal .term-line {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.terminal .prompt {
+    color: var(--brand);
+    font-weight: 700;
+}
+
+.terminal #typed {
+    color: var(--ink);
+    font-weight: 600;
+}
+
+.terminal .cursor {
+    display: inline-block;
+    width: 8px;
+    height: 17px;
+    margin-left: -4px;
+    background: var(--brand);
+    animation: blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.terminal .term-output {
+    margin-top: 8px;
+}
+
+.terminal .out-line {
+    padding-left: 4px;
+    line-height: 1.7;
+    color: var(--text);
+    animation: outIn .3s ease both;
+}
+
+.terminal .out-line::before {
+    content: "› ";
+    color: var(--brand);
+    font-weight: 700;
+}
+
+@keyframes outIn {
+    from {
+        opacity: 0;
+        transform: translateX(-6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@media (max-width: 1089px) {
+    .container-fluid .section1 .section1-sub {
+        flex-direction: column;
+    }
+
+    .container-fluid .section1 .section-right-1 .section-card {
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+    }
 }
 
 /* Tech Stack */
@@ -844,6 +1009,7 @@ html {
     padding: 4rem 2.5rem 4rem;
     /* background: #eef2f9; */
     background-color: var(--bg);
+    border-bottom: 1px solid var(--border);
 }
 
 .container-fluid .section3 h2 {
@@ -893,6 +1059,48 @@ html {
 
 .container-fluid .section3 .section3-sub .project-parent .project:nth-child(2) .header {
     background-image: url('images/cooperative.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-fluid .section3 .section3-sub .project-parent .project:nth-child(3) .header {
+    background-image: url('images/JackEnPoy.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-fluid .section3 .section3-sub .project-parent .project:nth-child(4) .header {
+    background-image: url('images/Jollibee.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-fluid .section3 .section3-sub .project-parent .project:nth-child(5) .header {
+    background-image: url('images/payroll.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-fluid .section3 .section3-sub .project-parent .project:nth-child(6) .header {
+    background-image: url('images/student_record.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-fluid .section3 .section3-sub .project-parent .project:nth-child(7) .header {
+    background-image: url('images/crochet.jpeg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container-fluid .section3 .section3-sub .project-parent .project:nth-child(8) .header {
+    background-image: url('images/inventory.jpeg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -1010,6 +1218,649 @@ html {
         bottom: 16px;
         width: 48px;
         height: 48px;
+    }
+}
+
+.container-fluid .section4 {
+    padding: 4rem 2.5rem 4rem;
+    /* background: #eef2f9; */
+    background-color: var(--bg);
+}
+
+.container-fluid .section4 h2 {
+    color: var(--ink);
+    font-size: 35px;
+    margin: 0 0 30px;
+    position: relative;
+}
+
+.container-fluid .section4 h2::after {
+    content: "";
+    display: block;
+    width: 56px;
+    height: 4px;
+    margin-top: 10px;
+    border-radius: 4px;
+    background: var(--brand);
+}
+
+/* ============ PAGE LOAD ANIMATIONS ============ */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* photo slides in from the right */
+@keyframes fadeLeft {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* only fades in, ends at the element's own opacity */
+@keyframes fadeOnly {
+    from {
+        opacity: 0;
+    }
+}
+
+/* navbar */
+.container-fluid nav .nav-sub {
+    animation: fadeDown 0.8s ease both;
+}
+
+/* hero text, one after another */
+.container-fluid main .main-left .status-pill {
+    animation: fadeUp 0.8s 0.2s ease both;
+}
+
+.container-fluid main .main-left h2 {
+    animation: fadeUp 0.8s 0.35s ease both;
+}
+
+.container-fluid main .main-left p {
+    animation: fadeUp 0.8s 0.5s ease both;
+}
+
+.container-fluid main .main-left .action-buttons {
+    animation: fadeUp 0.8s 0.65s ease both;
+}
+
+/* hero photo decorations appear after the photo */
+.deco-frame {
+    animation: fadeOnly 0.8s 1s ease both;
+}
+
+.deco-dots {
+    animation: fadeOnly 0.8s 1.1s ease both;
+}
+
+/* respect people who turn off animations in their system */
+@media (prefers-reduced-motion: reduce) {
+
+    .container-fluid nav .nav-sub,
+    .container-fluid main .main-left .status-pill,
+    .container-fluid main .main-left h2,
+    .container-fluid main .main-left p,
+    .container-fluid main .main-left .action-buttons,
+    .container-fluid main .main-right,
+    .deco-frame,
+    .deco-dots {
+        animation: none;
+    }
+}
+
+/* stop the sideways scrollbar from the slide-in animation */
+.container-fluid {
+    overflow-x: hidden;
+}
+
+/* ============ PRELOADER ============ */
+body.loading {
+    overflow: hidden;
+}
+
+/* keep the page animations waiting until the loader is gone */
+body.loading .container-fluid *,
+body.loading .container-fluid *::before,
+body.loading .container-fluid *::after {
+    animation-play-state: paused !important;
+}
+
+.preloader {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--bg);
+    transition: transform .9s cubic-bezier(.77, 0, .18, 1);
+    /* failsafe: if JS ever fails, the loader hides itself */
+    animation: preFailsafe 0s 8s forwards;
+}
+
+.preloader.done {
+    transform: translateY(-100%);
+}
+
+.preloader.done .pre-content,
+.preloader.done .pre-float {
+    opacity: 0;
+    transition: opacity .3s;
+}
+
+@keyframes preFailsafe {
+    to {
+        visibility: hidden;
+    }
+}
+
+.pre-glow {
+    position: absolute;
+    width: 520px;
+    height: 520px;
+    max-width: 90vw;
+    background: radial-gradient(circle, var(--brand-soft) 0%, transparent 70%);
+    filter: blur(10px);
+    animation: preBreathe 3s ease-in-out infinite;
+}
+
+@keyframes preBreathe {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: .8;
+    }
+
+    50% {
+        transform: scale(1.15);
+        opacity: 1;
+    }
+}
+
+.pre-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+/* progress ring */
+.pre-ring {
+    position: relative;
+    width: 150px;
+    height: 150px;
+}
+
+.pre-ring svg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.pre-ring circle {
+    fill: none;
+    stroke-width: 6;
+}
+
+.ring-bg {
+    stroke: var(--brand-soft);
+}
+
+.ring-fill {
+    stroke: var(--brand);
+    stroke-linecap: round;
+    stroke-dasharray: 327;
+    stroke-dashoffset: 327;
+}
+
+.pre-logo {
+    position: absolute;
+    inset: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--card);
+    border-radius: 50%;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--brand);
+    animation: prePop 1.6s ease-in-out infinite;
+}
+
+@keyframes prePop {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+}
+
+.pre-name {
+    margin-top: 26px;
+    font-size: 22px;
+    color: var(--ink);
+}
+
+/* terminal-style status line */
+.pre-status {
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Courier New", monospace;
+    font-size: 14.5px;
+    color: var(--text);
+}
+
+.pre-status * {
+    font-family: "Courier New", monospace;
+}
+
+.pre-prompt {
+    color: var(--brand);
+    font-weight: 700;
+}
+
+.pre-cursor {
+    width: 8px;
+    height: 16px;
+    margin-left: -3px;
+    background: var(--brand);
+    animation: blink 1s steps(1) infinite;
+}
+
+.pre-percent {
+    margin-top: 14px;
+    font-size: 40px;
+    font-weight: 700;
+    color: var(--brand);
+    line-height: 1;
+}
+
+/* floating tech icons */
+.pre-float {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 52px;
+    height: 52px;
+    background: var(--card);
+    color: var(--brand);
+    font-size: 24px;
+    border-radius: 14px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+    animation: preFloat 3.4s ease-in-out infinite;
+}
+
+.pre-float.f1 {
+    top: 24%;
+    left: 22%;
+}
+
+.pre-float.f2 {
+    top: 30%;
+    right: 22%;
+    animation-delay: .6s;
+}
+
+.pre-float.f3 {
+    bottom: 24%;
+    left: 26%;
+    animation-delay: 1.2s;
+}
+
+.pre-float.f4 {
+    bottom: 28%;
+    right: 25%;
+    animation-delay: 1.8s;
+}
+
+@keyframes preFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-16px) rotate(4deg);
+    }
+}
+
+@media (max-width: 600px) {
+    .pre-float {
+        display: none;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .preloader {
+        display: none;
+    }
+}
+
+/* ============ RESPONSIVE ============ */
+
+/* the "box-sizing: 0" in your * rule is invalid and causes overflow on phones */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+}
+
+/* hamburger + mobile-only menu item are hidden on desktop */
+.container-fluid nav .nav-toggle {
+    display: none;
+    width: 42px;
+    height: 42px;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    background: var(--card);
+    color: var(--ink);
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.container-fluid nav .nav-list ul li.menu-cta {
+    display: none;
+}
+
+@keyframes menuIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ---------- Tablet and below ---------- */
+@media (max-width: 1089px) {
+
+    /* navbar becomes hamburger + dropdown */
+    .container-fluid nav .nav-toggle {
+        display: flex;
+    }
+
+    .container-fluid nav .nav-sub {
+        position: relative;
+        z-index: 50;
+        width: calc(100% - 2rem);
+        margin: 1rem 1rem 0;
+        padding: .85rem 1.25rem;
+    }
+
+    .container-fluid nav .nav-list {
+        display: none;
+        position: absolute;
+        top: calc(100% + 10px);
+        left: 0;
+        right: 0;
+        padding: .75rem;
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        box-shadow: rgba(0, 0, 0, 0.16) 0 8px 24px;
+    }
+
+    .container-fluid nav .nav-sub.open .nav-list {
+        display: block;
+        animation: menuIn .25s ease both;
+    }
+
+    .container-fluid nav .nav-list ul {
+        flex-direction: column;
+        align-items: stretch;
+        gap: .25rem;
+    }
+
+    .container-fluid nav .nav-list ul li a {
+        display: block;
+        padding: 12px 14px;
+        border-radius: 8px;
+    }
+
+    .container-fluid nav .nav-list ul li a:hover {
+        background: var(--brand-soft);
+        color: var(--brand);
+    }
+
+    .container-fluid nav .nav-list ul li.menu-cta {
+        display: block;
+        margin-top: .5rem;
+    }
+
+    .container-fluid nav .nav-list ul li.menu-cta a {
+        text-align: center;
+        background: var(--brand);
+        color: var(--btn-text);
+    }
+
+    .container-fluid nav .nav-list ul li.menu-cta a:hover {
+        background: var(--brand-hover);
+        color: var(--btn-text);
+    }
+
+    /* hero */
+    .container-fluid main .main-left h2 {
+        font-size: clamp(24px, 7vw, 56px);
+        line-height: 1.2;
+    }
+
+    .container-fluid main .main-left .action-buttons {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .container-fluid main .main-right {
+        padding: 30px 30px 24px 24px;
+    }
+
+    .img-wrap {
+        width: min(100%, 400px);
+        height: auto;
+        aspect-ratio: 1 / 1;
+    }
+
+    .container-fluid main .main-right img {
+        width: 100%;
+        height: 100%;
+    }
+
+    /* about */
+    .container-fluid .section1 .section-right-1 .section-card {
+        margin: 0 14px 14px 0;
+        width: calc(100% - 14px);
+    }
+
+    /* grids */
+    .container-fluid .tech-stack .tech-stack-parent {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .container-fluid .section3 .section3-sub .project-parent {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* ---------- Phones ---------- */
+@media (max-width: 650px) {
+
+    .container-fluid .section3 .section3-sub .project-parent {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 600px) {
+
+    /* tighter side padding on every section */
+    .container-fluid main .main-sub {
+        padding: 2rem 1.25rem 3rem;
+    }
+
+    .container-fluid .section1 .section1-sub,
+    .container-fluid .tech-stack,
+    .container-fluid .section2,
+    .container-fluid .section3,
+    .container-fluid .section4 {
+        padding: 2.5rem 1.25rem;
+    }
+
+    /* section headings */
+    .container-fluid .section1 .section-left-1 h2,
+    .container-fluid .tech-stack h2,
+    .container-fluid .section2 h2,
+    .container-fluid .section3 h2,
+    .container-fluid .section4 h2 {
+        font-size: 28px;
+        margin-bottom: 22px;
+    }
+
+    /* hero */
+    .container-fluid main .main-left {
+        margin-top: 10px;
+    }
+
+    .hl .sparkle {
+        width: 22px;
+        right: -26px;
+        top: -6px;
+    }
+
+    /* typing line: show it wrapped instead of typed, so it fits */
+    .container-fluid main .main-left .expertise {
+        font-size: 17px;
+        width: auto;
+        text-wrap: wrap;
+        border-right: none;
+        animation: none;
+        text-align: center;
+    }
+
+    .container-fluid main .main-left p {
+        font-size: 15px;
+    }
+
+    .container-fluid main .main-left .action-buttons button {
+        padding: 11px 18px;
+        font-size: 14px;
+    }
+
+    .float-badge {
+        width: 44px;
+        height: 44px;
+        font-size: 16px;
+        right: -18px;
+    }
+
+    /* about */
+    .container-fluid .section1 .section-left-1 .stats-parent {
+        flex-wrap: wrap;
+        gap: 1.5rem 2rem;
+    }
+
+    .container-fluid .section1 .section-left-1 .loc-active {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .container-fluid .section1 .section-left-1 .loc-active .card-real-text {
+        word-break: break-word;
+    }
+
+    .terminal {
+        font-size: 13px;
+        margin: 0 12px 12px;
+        padding: 12px 14px 14px;
+    }
+
+    /* tech stack */
+    .container-fluid .tech-stack .tech-stack-parent {
+        grid-template-columns: 1fr;
+    }
+
+    .container-fluid .tech-stack .tech-stack-parent .tech-stack-card {
+        padding: 1rem;
+    }
+
+    /* experience timeline */
+    .timeline {
+        padding-left: 20px;
+    }
+
+    .t-item::before {
+        left: -28.1px;
+    }
+
+    .t-item {
+        gap: 1rem;
+    }
+
+    .t-box {
+        height: 180px;
+    }
+
+    /* preloader */
+    .pre-ring {
+        width: 130px;
+        height: 130px;
+    }
+
+    .pre-logo {
+        font-size: 40px;
+    }
+
+    .pre-name {
+        font-size: 19px;
+    }
+
+    .pre-percent {
+        font-size: 34px;
     }
 }
 

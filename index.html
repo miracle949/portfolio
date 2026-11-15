@@ -11,566 +11,832 @@
 </head>
 
 <body>
-    <div class="container-fluid">
-        <nav>
-            <div class="nav-sub">
-                <div class="nav-logo">
-                    <h3>Miracle</h3>
+
+    <body class="loading">
+
+        <!-- ===== PRELOADER ===== -->
+        <div class="preloader" id="preloader">
+            <div class="pre-glow"></div>
+
+            <i class="fa-brands fa-html5 pre-float f1"></i>
+            <i class="fa-brands fa-css3-alt pre-float f2"></i>
+            <i class="fa-brands fa-js pre-float f3"></i>
+            <i class="fa-brands fa-php pre-float f4"></i>
+
+            <div class="pre-content">
+                <div class="pre-ring">
+                    <svg viewBox="0 0 120 120">
+                        <circle class="ring-bg" cx="60" cy="60" r="52" />
+                        <circle class="ring-fill" id="ringFill" cx="60" cy="60" r="52" />
+                    </svg>
+                    <div class="pre-logo">R</div>
                 </div>
 
-                <div class="nav-list">
-                    <ul>
-                        <li>
-                            <a href="#">Home</a>
-                        </li>
+                <h3 class="pre-name">Rogelio Amoyan</h3>
 
-                        <li>
-                            <a href="#about-me">About</a>
-                        </li>
+                <p class="pre-status">
+                    <span class="pre-prompt">➜</span>
+                    <span id="preStatus">Starting up...</span><span class="pre-cursor"></span>
+                </p>
 
-                        <li>
-                            <a href="#tech-stack">TechStack</a>
-                        </li>
-
-                        <li>
-                            <a href="#experience">Experience</a>
-                        </li>
-
-                        <li>
-                            <a href="#projects">Projects</a>
-                        </li>
-
-                        <li>
-                            <a href="#">Contacts</a>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="nav-btn">
-                    <button>Let's Connect!</button>
-                </div>
+                <div class="pre-percent"><span id="prePercent">0</span>%</div>
             </div>
-        </nav>
+        </div>
 
-        <main>
-            <div class="main-sub">
-                <div class="main-left">
-                    <div class="status-pill">
-                        <span class="pulse"></span> Available for freelance work
+        <div class="container-fluid">
+            <nav>
+                <div class="nav-sub">
+                    <div class="nav-logo">
+                        <h3>Miracle</h3>
                     </div>
 
-                    <h2>
-                        <b>Hello, I'm</b><br>
-                        <span class="hl">
-                            Rogelio Amoyan
-                            <svg class="squiggle" viewBox="0 0 300 12" fill="none" preserveAspectRatio="none"
-                                aria-hidden="true">
-                                <path
-                                    d="M2 8 C 20 0, 40 12, 60 6 S 100 0, 120 6 S 160 12, 180 6 S 220 0, 240 6 S 280 10, 298 4"
-                                    stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                    <div class="nav-list">
+                        <ul>
+                            <li>
+                                <a href="#">Home</a>
+                            </li>
+
+                            <li>
+                                <a href="#about-me">About</a>
+                            </li>
+
+                            <li>
+                                <a href="#tech-stack">TechStack</a>
+                            </li>
+
+                            <li>
+                                <a href="#experience">Experience</a>
+                            </li>
+
+                            <li>
+                                <a href="#projects">Projects</a>
+                            </li>
+
+                            <li>
+                                <a href="#contacts">Contacts</a>
+                            </li>
+
+                            <li class="menu-cta">
+                                <a href="#contacts">Let's Connect!</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="nav-btn">
+                        <button>Let's Connect!</button>
+                    </div>
+
+                    <button class="nav-toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+                        <i class="fa-solid fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+
+            <main>
+                <div class="main-sub">
+                    <div class="main-left">
+                        <div class="status-pill">
+                            <span class="pulse"></span> Available for freelance work
+                        </div>
+
+                        <h2>
+                            <b>Hello, I'm</b><br>
+                            <span class="hl">
+                                Rogelio Amoyan
+                                <svg class="squiggle" viewBox="0 0 300 12" fill="none" preserveAspectRatio="none"
+                                    aria-hidden="true">
+                                    <path
+                                        d="M2 8 C 20 0, 40 12, 60 6 S 100 0, 120 6 S 160 12, 180 6 S 220 0, 240 6 S 280 10, 298 4"
+                                        stroke="currentColor" stroke-width="3" stroke-linecap="round" />
+                                </svg>
+                                <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true">
+                                    <path
+                                        d="M12 0 C 13 7, 17 11, 24 12 C 17 13, 13 17, 12 24 C 11 17, 7 13, 0 12 C 7 11, 11 7, 12 0 Z"
+                                        fill="currentColor" />
+                                </svg>
+                            </span>
+                        </h2>
+
+                        <div class="expertise">
+                            | Web Developer | UI & UX Designer |
+                        </div>
+                        <p>I'm a fourth year Information Systems Student at Kolehiyo ng Lungsod ng Dasmariñas with a
+                            passion
+                            for web development and UI/UX design. I enjoy creating responsive, user-friendly websites
+                            and
+                            continuously improving my technical and design skills.</p>
+
+                        <div class="action-buttons">
+                            <button>View My Work</button>
+                            <button>View My Resume</button>
+
+                            <svg class="curve-arrow" viewBox="0 0 200 130" fill="none" aria-hidden="true">
+                                <path class="arrow-line" d="M5 110 C 70 125, 130 85, 150 22" stroke="currentColor"
+                                    stroke-width="3" stroke-linecap="round" stroke-dasharray="2 10" />
+                                <path d="M133 26 L152 14 L162 36" stroke="currentColor" stroke-width="3.5"
+                                    stroke-linecap="round" stroke-linejoin="round" />
                             </svg>
-                            <svg class="sparkle" viewBox="0 0 24 24" aria-hidden="true">
-                                <path
-                                    d="M12 0 C 13 7, 17 11, 24 12 C 17 13, 13 17, 12 24 C 11 17, 7 13, 0 12 C 7 11, 11 7, 12 0 Z"
-                                    fill="currentColor" />
-                            </svg>
-                        </span>
-                    </h2>
+                        </div>
 
-                    <div class="expertise">
-                        | Web Developer | UI & UX Designer |
-                    </div>
-                    <p>I'm a fourth year Information Systems Student at Kolehiyo ng Lungsod ng Dasmariñas with a passion
-                        for web development and UI/UX design. I enjoy creating responsive, user-friendly websites and
-                        continuously improving my technical and design skills.</p>
-
-                    <div class="action-buttons">
-                        <button>View My Work</button>
-                        <button>View My Resume</button>
-
-                        <svg class="curve-arrow" viewBox="0 0 200 130" fill="none" aria-hidden="true">
-                            <path class="arrow-line" d="M5 110 C 70 125, 130 85, 150 22" stroke="currentColor"
-                                stroke-width="3" stroke-linecap="round" stroke-dasharray="2 10" />
-                            <path d="M133 26 L152 14 L162 36" stroke="currentColor" stroke-width="3.5"
-                                stroke-linecap="round" stroke-linejoin="round" />
-                        </svg>
-                    </div>
-
-                    <!-- <div class="tech-row">
+                        <!-- <div class="tech-row">
                         <span class="tech-label">Tools I use</span>
                         <span class="chip"><i class="fa-brands fa-html5"></i> HTML</span>
                         <span class="chip"><i class="fa-brands fa-css3-alt"></i> CSS</span>
                         <span class="chip"><i class="fa-brands fa-js"></i> JavaScript</span>
                         <span class="chip"><i class="fa-brands fa-figma"></i> Figma</span>
                     </div> -->
-                </div>
-
-                <div class="main-right">
-                    <div class="img-wrap">
-                        <span class="deco-dots"></span>
-                        <span class="deco-frame"></span>
-                        <img src="images/main-image.jpg" alt="">
-                        <div class="float-badge"><i class="fa fa-arrow-right"></i></div>
-                    </div>
-                </div>
-            </div>
-        </main>
-
-        <section class="section1" id="about-me">
-            <div class="section1-sub">
-                <div class="section-left-1">
-                    <h2>A bit About <b>myself.</b></h2>
-
-                    <p>I'm a fourth-year Information Systems student at Kolehiyo ng Lungsod ng Dasmariñas. I enjoy
-                        coding,
-                        building responsive websites, and creating clean, user-friendly designs. I'm passionate about
-                        learning new technologies and continuously improving my skills through hands-on experience and
-                        self-learning.</p>
-
-                    <p>Outside of coding, I enjoy playing online games, going for walks, discovering new places,
-                        exploring different interests, and trying out activities that help me relax and refresh my mind.
-                        I believe that having time for hobbies and personal interests helps me maintain a balance
-                        between work, learning, and everyday life.
-                    </p>
-
-                    <p>I also enjoy challenging myself to learn new things, explore different technologies, and develop
-                        skills that can help me become a better version of myself. I'm always open to new experiences
-                        and opportunities that allow me to upskill, gain knowledge, improve my abilities, and grow both
-                        personally and professionally.</p>
-
-                    <div class="stats-parent">
-                        <div class="stat">
-                            <strong>4th</strong>
-                            <span>Year Student</span>
-                        </div>
-
-                        <div class="stat">
-                            <strong>10+</strong>
-                            <span>Project Built</span>
-                        </div>
-
-                        <div class="stat">
-                            <strong>2</strong>
-                            <span>Focus Area</span>
-                        </div>
                     </div>
 
-                    <div class="loc-active">
-                        <div class="location">
-                            <div class="header">
-                                <i class="fa fa-location-pin"></i>
-                                <div class="card-text">
-                                    Location
+                    <div class="main-right">
+                        <div class="img-wrap">
+                            <span class="deco-dots"></span>
+                            <span class="deco-frame"></span>
+                            <img src="images/main-image.jpg" alt="">
+                            <div class="float-badge"><i class="fa fa-arrow-right"></i></div>
+                        </div>
+                    </div>
+                </div>
+            </main>
+
+            <section class="section1" id="about-me">
+                <div class="section1-sub">
+                    <div class="section-left-1">
+                        <h2>A bit About <b>myself.</b></h2>
+
+                        <p>I'm a fourth-year Information Systems student at Kolehiyo ng Lungsod ng Dasmariñas. I enjoy
+                            coding,
+                            building responsive websites, and creating clean, user-friendly designs. I'm passionate
+                            about
+                            learning new technologies and continuously improving my skills through hands-on experience
+                            and
+                            self-learning.</p>
+
+                        <p>Outside of coding, I enjoy playing online games, going for walks, discovering new places,
+                            exploring different interests, and trying out activities that help me relax and refresh my
+                            mind.
+                            I believe that having time for hobbies and personal interests helps me maintain a balance
+                            between work, learning, and everyday life.
+                        </p>
+
+                        <p>I also enjoy challenging myself to learn new things, explore different technologies, and
+                            develop
+                            skills that can help me become a better version of myself. I'm always open to new
+                            experiences
+                            and opportunities that allow me to upskill, gain knowledge, improve my abilities, and grow
+                            both
+                            personally and professionally.</p>
+
+                        <div class="stats-parent">
+                            <div class="stat">
+                                <strong>4th</strong>
+                                <span>Year Student</span>
+                            </div>
+
+                            <div class="stat">
+                                <strong>10+</strong>
+                                <span>Project Built</span>
+                            </div>
+
+                            <div class="stat">
+                                <strong>2</strong>
+                                <span>Focus Area</span>
+                            </div>
+                        </div>
+
+                        <div class="loc-active">
+                            <div class="location">
+                                <div class="header">
+                                    <i class="fa fa-location-pin"></i>
+                                    <div class="card-text">
+                                        Location
+                                    </div>
                                 </div>
+                                <div class="body">
+                                    <div class="card-real-text">
+                                        Paliparan III Dasmarinas Cavite
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="active">
+                                <div class="header">
+                                    <i class="fa fa-envelope"></i>
+                                    <div class="card-text">
+                                        Active Email
+                                    </div>
+                                </div>
+                                <div class="body">
+                                    <div class="card-real-text">
+                                        rogelioamoyan768@gmail.com
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="section-right-1">
+                        <div class="section-card">
+                            <div class="section-card-header">
+                                <div class="section-circle-parent">
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                    <div class="circle"></div>
+                                </div>
+                                <span class="card-title">rogelio@portfolio: ~</span>
+                            </div>
+
+                            <div class="card-photo">
+                                <img src="images/about-me.jpg" alt="Rogelio Amoyan">
+                            </div>
+
+                            <div class="terminal">
+                                <div class="term-line">
+                                    <span class="prompt">➜ ~</span>
+                                    <span id="typed"></span><span class="cursor"></span>
+                                </div>
+                                <div class="term-output" id="termOutput"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="tech-stack" id="tech-stack">
+                <div class="tech-stack-sub">
+                    <h2>
+                        My <b>Tech Stack.</b>
+                    </h2>
+
+                    <div class="tech-stack-parent">
+                        <div class="tech-stack-card">
+                            <div class="tech-logo"><i class="fa-brands fa-html5"></i></div>
+                            <div class="tech-text">
+                                <strong>HTML</strong>
+                                <span>HyperText Markup Language</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack-card">
+                            <div class="tech-logo"><i class="fa-brands fa-php"></i></div>
+                            <div class="tech-text">
+                                <strong>PHP</strong>
+                                <span>Server-Side Scripting</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack-card">
+                            <div class="tech-logo"><i class="fa-brands fa-css3-alt"></i></div>
+                            <div class="tech-text">
+                                <strong>CSS</strong>
+                                <span>Cascading Style Sheets</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack-card">
+                            <div class="tech-logo"><i class="fa-solid fa-database"></i></div>
+                            <div class="tech-text">
+                                <strong>MySQL</strong>
+                                <span>Relational Database</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack-card">
+                            <div class="tech-logo"><i class="fa-brands fa-figma"></i></div>
+                            <div class="tech-text">
+                                <strong>Figma</strong>
+                                <span>UI/UX Design Tool</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack-card">
+                            <div class="tech-logo"><i class="fa-brands fa-github"></i></div>
+                            <div class="tech-text">
+                                <strong>GitHub</strong>
+                                <span>Version Control &amp; Collaboration</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack-card">
+                            <div class="tech-logo"><i class="fa-brands fa-laravel"></i></div>
+                            <div class="tech-text">
+                                <strong>Laravel</strong>
+                                <span>PHP Web Framework</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack-card">
+                            <div class="tech-logo"><i class="fa-solid fa-wind"></i></div>
+                            <div class="tech-text">
+                                <strong>Tailwind</strong>
+                                <span>Utility-First CSS Framework</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack-card">
+                            <div class="tech-logo"><i class="fa-brands fa-bootstrap"></i></div>
+                            <div class="tech-text">
+                                <strong>Bootstrap</strong>
+                                <span>Responsive CSS Framework</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack-card">
+                            <div class="tech-logo"><i class="fa-brands fa-java"></i></div>
+                            <div class="tech-text">
+                                <strong>Java</strong>
+                                <span>Object-Oriented Programming</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack-card">
+                            <div class="tech-logo"><i class="fa-solid fa-code"></i></div>
+                            <div class="tech-text">
+                                <strong>C++</strong>
+                                <span>General-Purpose Programming</span>
+                            </div>
+                        </div>
+
+                        <div class="tech-stack-card">
+                            <div class="tech-logo"><i class="fa-brands fa-js"></i></div>
+                            <div class="tech-text">
+                                <strong>JavaScript</strong>
+                                <span>Interactive Web Scripting</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section2" id="experience">
+                <div class="section2-sub">
+                    <h2>Experience <b>I've Gained.</b></h2>
+
+                    <div class="experience-parent">
+                        <div class="timeline">
+                            <article class="t-item">
+                                <div class="t-content">
+                                    <span class="t-date">2026 – Present</span>
+                                    <h3>Capstone Project Development</h3>
+                                    <p class="t-place">School Projects</p>
+                                    <p>Designed and built responsive websites, from wireframes in Figma to finished
+                                        HTML,
+                                        CSS and JavaScript.</p>
+                                </div>
+                                <div class="t-box"></div>
+                            </article>
+
+                            <article class="t-item">
+                                <div class="t-content">
+                                    <span class="t-date">2024 – 2025</span>
+                                    <h3>Capstone Project Development</h3>
+                                    <p class="t-place">Kolehiyo ng Lungsod ng Dasmariñas</p>
+                                    <p>Worked with a team to plan, design and develop an information system, handling
+                                        the
+                                        front-end and interface design.</p>
+                                </div>
+                                <div class="t-box"></div>
+                            </article>
+
+                            <article class="t-item">
+                                <div class="t-content">
+                                    <span class="t-date">2022 – Present</span>
+                                    <h3>BS Information Systems</h3>
+                                    <p class="t-place">Kolehiyo ng Lungsod ng Dasmariñas</p>
+                                    <p>Studying web development, databases, systems analysis and user experience design.
+                                    </p>
+                                </div>
+                                <div class="t-box"></div>
+                            </article>
+
+                            <article class="t-item">
+                                <div class="t-content">
+                                    <span class="t-date">2022 – Present</span>
+                                    <h3>BS Information Systems</h3>
+                                    <p class="t-place">Kolehiyo ng Lungsod ng Dasmariñas</p>
+                                    <p>Studying web development, databases, systems analysis and user experience design.
+                                    </p>
+                                </div>
+                                <div class="t-box"></div>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="section3" id="projects">
+                <div class="section3-sub">
+                    <h2>Projects I've Created.</h2>
+
+                    <div class="project-parent">
+                        <div class="project">
+                            <div class="header">
+
                             </div>
                             <div class="body">
-                                <div class="card-real-text">
-                                    Paliparan III Dasmarinas Cavite
+                                <h4>Learning Management System</h4>
+
+                                <p>A personal landing page built with HTML and CSS, fully responsive. A personal landing
+                                    page built with HTML and CSS, fully responsive. A personal landing page built with
+                                    HTML
+                                    and CSS, fully responsive.</p>
+
+                                <div class="tech-parent">
+                                    <div class="tech">
+                                        PHP
+                                    </div>
+                                    <div class="tech">
+                                        CSS
+                                    </div>
+                                    <div class="tech">
+                                        Javascript
+                                    </div>
+                                    <div class="tech">
+                                        Bootstrap
+                                    </div>
+                                    <div class="tech">
+                                        Github
+                                    </div>
                                 </div>
+
+                                <button>
+                                    View Project
+                                </button>
                             </div>
                         </div>
-                        <div class="active">
+
+                        <div class="project">
                             <div class="header">
-                                <i class="fa fa-envelope"></i>
-                                <div class="card-text">
-                                    Active Email
-                                </div>
+
                             </div>
                             <div class="body">
-                                <div class="card-real-text">
-                                    rogelioamoyan768@gmail.com
+                                <h4>Cooperative Management System</h4>
+
+                                <p>A personal landing page built with HTML and CSS, fully responsive.</p>
+
+                                <div class="tech-parent">
+                                    <div class="tech">
+                                        PHP
+                                    </div>
+                                    <div class="tech">
+                                        Laravel
+                                    </div>
+                                    <div class="tech">
+                                        CSS
+                                    </div>
+                                    <div class="tech">
+                                        Tailwind
+                                    </div>
+                                    <div class="tech">
+                                        Bootstrap
+                                    </div>
+                                    <div class="tech">
+                                        TypeScript
+                                    </div>
+                                    <div class="tech">
+                                        Github
+                                    </div>
                                 </div>
+
+                                <button>
+                                    View Project
+                                </button>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-                <div class="section-right-1">
-                    <div class="section-card">
-                        <div class="section-card-header">
-                            <div class="section-circle-parent">
-                                <div class="circle"></div>
-                                <div class="circle"></div>
-                                <div class="circle"></div>
+                        <div class="project">
+                            <div class="header">
+
+                            </div>
+                            <div class="body">
+                                <h4>Jack N' Poy Game</h4>
+
+                                <p>A personal landing page built with HTML and CSS, fully responsive.</p>
+
+                                <div class="tech-parent">
+                                    <div class="tech">
+                                        HTML
+                                    </div>
+                                    <div class="tech">
+                                        CSS
+                                    </div>
+                                    <div class="tech">
+                                        Javascript
+                                    </div>
+                                    <div class="tech">
+                                        Github
+                                    </div>
+                                </div>
+
+                                <button>
+                                    View Project
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="project">
+                            <div class="header">
+
+                            </div>
+                            <div class="body">
+                                <h4>Jollibee Quiz Game</h4>
+
+                                <p>A personal landing page built with HTML and CSS, fully responsive.</p>
+
+                                <div class="tech-parent">
+                                    <div class="tech">
+                                        HTML
+                                    </div>
+                                    <div class="tech">
+                                        CSS
+                                    </div>
+                                    <div class="tech">
+                                        Javascript
+                                    </div>
+                                    <div class="tech">
+                                        Github
+                                    </div>
+                                </div>
+
+                                <button>
+                                    View Project
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="project">
+                            <div class="header">
+
+                            </div>
+                            <div class="body">
+                                <h4>Payroll Management</h4>
+
+                                <p>A personal landing page built with HTML and CSS, fully responsive.</p>
+
+                                <div class="tech-parent">
+                                    <div class="tech">
+                                        PHP
+                                    </div>
+                                    <div class="tech">
+                                        CSS
+                                    </div>
+                                    <div class="tech">
+                                        Javascript
+                                    </div>
+                                    <div class="tech">
+                                        Bootstrap
+                                    </div>
+                                </div>
+
+                                <button>
+                                    View Project
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="project">
+                            <div class="header">
+
+                            </div>
+                            <div class="body">
+                                <h4>Student Records</h4>
+
+                                <p>A personal landing page built with HTML and CSS, fully responsive.</p>
+
+                                <div class="tech-parent">
+                                    <div class="tech">
+                                        PHP
+                                    </div>
+                                    <div class="tech">
+                                        CSS
+                                    </div>
+                                    <div class="tech">
+                                        Javascript
+                                    </div>
+                                    <div class="tech">
+                                        Bootstrap
+                                    </div>
+                                </div>
+
+                                <button>
+                                    View Project
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="project">
+                            <div class="header">
+
+                            </div>
+                            <div class="body">
+                                <h4>Crochet Website</h4>
+
+                                <p>A personal landing page built with HTML and CSS, fully responsive.</p>
+
+                                <div class="tech-parent">
+                                    <div class="tech">
+                                        HTML
+                                    </div>
+                                    <div class="tech">
+                                        HTML
+                                    </div>
+                                    <div class="tech">
+                                        HTML
+                                    </div>
+                                </div>
+
+                                <button>
+                                    View Project
+                                </button>
+                            </div>
+                        </div>
+
+                        <div class="project">
+                            <div class="header">
+
+                            </div>
+                            <div class="body">
+                                <h4>Inventory Management</h4>
+
+                                <p>A personal landing page built with HTML and CSS, fully responsive.</p>
+
+                                <div class="tech-parent">
+                                    <div class="tech">
+                                        HTML
+                                    </div>
+                                    <div class="tech">
+                                        HTML
+                                    </div>
+                                    <div class="tech">
+                                        HTML
+                                    </div>
+                                </div>
+
+                                <button>
+                                    View Project
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
 
-        <section class="tech-stack" id="tech-stack">
-            <div class="tech-stack-sub">
-                <h2>
-                    My <b>Tech Stack.</b>
-                </h2>
-
-                <div class="tech-stack-parent">
-                    <div class="tech-stack-card">
-                        <div class="tech-logo"><i class="fa-brands fa-html5"></i></div>
-                        <div class="tech-text">
-                            <strong>HTML</strong>
-                            <span>HyperText Markup Language</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack-card">
-                        <div class="tech-logo"><i class="fa-brands fa-php"></i></div>
-                        <div class="tech-text">
-                            <strong>PHP</strong>
-                            <span>Server-Side Scripting</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack-card">
-                        <div class="tech-logo"><i class="fa-brands fa-css3-alt"></i></div>
-                        <div class="tech-text">
-                            <strong>CSS</strong>
-                            <span>Cascading Style Sheets</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack-card">
-                        <div class="tech-logo"><i class="fa-solid fa-database"></i></div>
-                        <div class="tech-text">
-                            <strong>MySQL</strong>
-                            <span>Relational Database</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack-card">
-                        <div class="tech-logo"><i class="fa-brands fa-figma"></i></div>
-                        <div class="tech-text">
-                            <strong>Figma</strong>
-                            <span>UI/UX Design Tool</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack-card">
-                        <div class="tech-logo"><i class="fa-brands fa-github"></i></div>
-                        <div class="tech-text">
-                            <strong>GitHub</strong>
-                            <span>Version Control &amp; Collaboration</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack-card">
-                        <div class="tech-logo"><i class="fa-brands fa-laravel"></i></div>
-                        <div class="tech-text">
-                            <strong>Laravel</strong>
-                            <span>PHP Web Framework</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack-card">
-                        <div class="tech-logo"><i class="fa-solid fa-wind"></i></div>
-                        <div class="tech-text">
-                            <strong>Tailwind</strong>
-                            <span>Utility-First CSS Framework</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack-card">
-                        <div class="tech-logo"><i class="fa-brands fa-bootstrap"></i></div>
-                        <div class="tech-text">
-                            <strong>Bootstrap</strong>
-                            <span>Responsive CSS Framework</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack-card">
-                        <div class="tech-logo"><i class="fa-brands fa-java"></i></div>
-                        <div class="tech-text">
-                            <strong>Java</strong>
-                            <span>Object-Oriented Programming</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack-card">
-                        <div class="tech-logo"><i class="fa-solid fa-code"></i></div>
-                        <div class="tech-text">
-                            <strong>C++</strong>
-                            <span>General-Purpose Programming</span>
-                        </div>
-                    </div>
-
-                    <div class="tech-stack-card">
-                        <div class="tech-logo"><i class="fa-brands fa-js"></i></div>
-                        <div class="tech-text">
-                            <strong>JavaScript</strong>
-                            <span>Interactive Web Scripting</span>
-                        </div>
-                    </div>
+            <section class="section4" id="contacts">
+                <div class="section4-sub">
+                    <h2>Contacts</h2>
                 </div>
-            </div>
-        </section>
-
-        <section class="section2" id="experience">
-            <div class="section2-sub">
-                <h2>Experience <b>I've Gained.</b></h2>
-
-                <div class="experience-parent">
-                    <div class="timeline">
-                        <article class="t-item">
-                            <div class="t-content">
-                                <span class="t-date">2026 – Present</span>
-                                <h3>Capstone Project Development</h3>
-                                <p class="t-place">School Projects</p>
-                                <p>Designed and built responsive websites, from wireframes in Figma to finished HTML,
-                                    CSS and JavaScript.</p>
-                            </div>
-                            <div class="t-box"></div>
-                        </article>
-
-                        <article class="t-item">
-                            <div class="t-content">
-                                <span class="t-date">2024 – 2025</span>
-                                <h3>Capstone Project Development</h3>
-                                <p class="t-place">Kolehiyo ng Lungsod ng Dasmariñas</p>
-                                <p>Worked with a team to plan, design and develop an information system, handling the
-                                    front-end and interface design.</p>
-                            </div>
-                            <div class="t-box"></div>
-                        </article>
-
-                        <article class="t-item">
-                            <div class="t-content">
-                                <span class="t-date">2022 – Present</span>
-                                <h3>BS Information Systems</h3>
-                                <p class="t-place">Kolehiyo ng Lungsod ng Dasmariñas</p>
-                                <p>Studying web development, databases, systems analysis and user experience design.</p>
-                            </div>
-                            <div class="t-box"></div>
-                        </article>
-
-                        <article class="t-item">
-                            <div class="t-content">
-                                <span class="t-date">2022 – Present</span>
-                                <h3>BS Information Systems</h3>
-                                <p class="t-place">Kolehiyo ng Lungsod ng Dasmariñas</p>
-                                <p>Studying web development, databases, systems analysis and user experience design.</p>
-                            </div>
-                            <div class="t-box"></div>
-                        </article>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <div class="section3" id="projects">
-            <div class="section3-sub">
-                <h2>Projects I've Created.</h2>
-
-                <div class="project-parent">
-                    <div class="project">
-                        <div class="header">
-
-                        </div>
-                        <div class="body">
-                            <h4>Learning Management System</h4>
-
-                            <p>A personal landing page built with HTML and CSS, fully responsive. A personal landing
-                                page built with HTML and CSS, fully responsive. A personal landing page built with HTML
-                                and CSS, fully responsive.</p>
-
-                            <div class="tech-parent">
-                                <div class="tech">
-                                    PHP
-                                </div>
-                                <div class="tech">
-                                    CSS
-                                </div>
-                                <div class="tech">
-                                    Javascript
-                                </div>
-                                <div class="tech">
-                                    Bootstrap
-                                </div>
-                                <div class="tech">
-                                    Github
-                                </div>
-                            </div>
-
-                            <button>
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <div class="header">
-
-                        </div>
-                        <div class="body">
-                            <h4>Cooperative Management System</h4>
-
-                            <p>A personal landing page built with HTML and CSS, fully responsive.</p>
-
-                            <div class="tech-parent">
-                                <div class="tech">
-                                    PHP
-                                </div>
-                                <div class="tech">
-                                    Laravel
-                                </div>
-                                <div class="tech">
-                                    CSS
-                                </div>
-                                <div class="tech">
-                                    Tailwind
-                                </div>
-                                <div class="tech">
-                                    Bootstrap
-                                </div>
-                                <div class="tech">
-                                    TypeScript
-                                </div>
-                                <div class="tech">
-                                    Github
-                                </div>
-                            </div>
-
-                            <button>
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <div class="header">
-
-                        </div>
-                        <div class="body">
-                            <h4>Portfolio Website</h4>
-
-                            <p>A personal landing page built with HTML and CSS, fully responsive.</p>
-
-                            <div class="tech-parent">
-                                <div class="tech">
-                                    HTML
-                                </div>
-                                <div class="tech">
-                                    HTML
-                                </div>
-                                <div class="tech">
-                                    HTML
-                                </div>
-                            </div>
-
-                            <button>
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <div class="header">
-
-                        </div>
-                        <div class="body">
-                            <h4>Portfolio Website</h4>
-
-                            <p>A personal landing page built with HTML and CSS, fully responsive.</p>
-
-                            <div class="tech-parent">
-                                <div class="tech">
-                                    HTML
-                                </div>
-                                <div class="tech">
-                                    HTML
-                                </div>
-                                <div class="tech">
-                                    HTML
-                                </div>
-                            </div>
-
-                            <button>
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <div class="header">
-
-                        </div>
-                        <div class="body">
-                            <h4>Portfolio Website</h4>
-
-                            <p>A personal landing page built with HTML and CSS, fully responsive.</p>
-
-                            <div class="tech-parent">
-                                <div class="tech">
-                                    HTML
-                                </div>
-                                <div class="tech">
-                                    HTML
-                                </div>
-                                <div class="tech">
-                                    HTML
-                                </div>
-                            </div>
-
-                            <button>
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-
-                    <div class="project">
-                        <div class="header">
-
-                        </div>
-                        <div class="body">
-                            <h4>Portfolio Website</h4>
-
-                            <p>A personal landing page built with HTML and CSS, fully responsive.</p>
-
-                            <div class="tech-parent">
-                                <div class="tech">
-                                    HTML
-                                </div>
-                                <div class="tech">
-                                    HTML
-                                </div>
-                                <div class="tech">
-                                    HTML
-                                </div>
-                            </div>
-
-                            <button>
-                                View Project
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </section>
         </div>
-    </div>
-    <button class="back-to-top" id="backToTop" aria-label="Back to top">
-        <span class="btt-inner"><i class="fa-solid fa-arrow-up"></i></span>
-    </button>
+        <button class="back-to-top" id="backToTop" aria-label="Back to top">
+            <span class="btt-inner"><i class="fa-solid fa-arrow-up"></i></span>
+        </button>
 
-    <!-- <script src="script.js"></script> -->
-    <script>
-        const backToTop = document.getElementById('backToTop');
 
-        window.addEventListener('scroll', () => {
-            const scrollTop = window.scrollY;
-            const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-            const progress = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
 
-            // show the button after scrolling 300px
-            backToTop.classList.toggle('show', scrollTop > 300);
+        <!-- <script src="script.js"></script> -->
 
-            // fill the ring based on scroll progress
-            backToTop.style.setProperty('--progress', progress + '%');
-        });
+        <script>
+            // ===== Mobile menu =====
+            const navSub = document.querySelector('.nav-sub');
+            const navToggle = document.getElementById('navToggle');
 
-        backToTop.addEventListener('click', () => {
-            window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-    </script>
-</body>
+            function setMenu(open) {
+                navSub.classList.toggle('open', open);
+                navToggle.setAttribute('aria-expanded', open);
+                navToggle.querySelector('i').className = open ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
+            }
+
+            navToggle.addEventListener('click', () => setMenu(!navSub.classList.contains('open')));
+
+            // close the menu after choosing a link
+            document.querySelectorAll('.nav-list a').forEach(a =>
+                a.addEventListener('click', () => setMenu(false))
+            );
+
+            // close it if the window is resized back to desktop
+            window.addEventListener('resize', () => {
+                if (window.innerWidth > 1089) setMenu(false);
+            });
+        </script>
+
+        <script>
+            // ===== Preloader =====
+            (function () {
+                const pre = document.getElementById('preloader');
+                const ring = document.getElementById('ringFill');
+                const pct = document.getElementById('prePercent');
+                const status = document.getElementById('preStatus');
+
+                const CIRCUMFERENCE = 327;
+                const DURATION = 2400; // minimum loading time in ms
+
+                const messages = [
+                    [0, 'Starting up...'],
+                    [25, 'Loading HTML & CSS...'],
+                    [50, 'Designing the interface...'],
+                    [75, 'Polishing the details...'],
+                    [100, 'Welcome!']
+                ];
+
+                let pageLoaded = document.readyState === 'complete';
+                window.addEventListener('load', () => pageLoaded = true);
+
+                const start = performance.now();
+
+                function tick(now) {
+                    const t = Math.min((now - start) / DURATION, 1);
+                    let value = (1 - Math.pow(1 - t, 2)) * 100;   // ease-out
+
+                    // wait at 90% until the page really finished loading
+                    if (!pageLoaded && value > 90) value = 90;
+
+                    ring.style.strokeDashoffset = CIRCUMFERENCE - (CIRCUMFERENCE * value / 100);
+                    pct.textContent = Math.floor(value);
+
+                    for (const [limit, text] of messages) {
+                        if (value >= limit) status.textContent = text;
+                    }
+
+                    if (value >= 100) {
+                        finish();
+                    } else {
+                        requestAnimationFrame(tick);
+                    }
+                }
+
+                function finish() {
+                    setTimeout(() => {
+                        pre.classList.add('done');                 // curtain lifts
+                        document.body.classList.remove('loading');
+                        document.body.classList.add('loaded');     // page animations start
+                        setTimeout(() => pre.remove(), 1000);
+                    }, 500);
+                }
+
+                requestAnimationFrame(tick);
+            })();
+        </script>
+
+        <script>
+            const backToTop = document.getElementById('backToTop');
+
+            window.addEventListener('scroll', () => {
+                const scrollTop = window.scrollY;
+                const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+                const progress = maxScroll > 0 ? (scrollTop / maxScroll) * 100 : 0;
+
+                // show the button after scrolling 300px
+                backToTop.classList.toggle('show', scrollTop > 300);
+
+                // fill the ring based on scroll progress
+                backToTop.style.setProperty('--progress', progress + '%');
+            });
+
+            backToTop.addEventListener('click', () => {
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+        </script>
+
+        <script>
+            // ===== Terminal typewriter =====
+            const typedEl = document.getElementById('typed');
+            const outEl = document.getElementById('termOutput');
+
+            const commands = [
+                { cmd: 'whoami', out: ['Rogelio Amoyan'] },
+                { cmd: 'cat role.txt', out: ['Web Developer', 'UI & UX Designer'] },
+                { cmd: 'ls skills/', out: ['HTML  CSS  JavaScript', 'PHP  MySQL  Figma'] },
+                { cmd: 'echo $STATUS', out: ['Open for freelance work ✨'] }
+            ];
+
+            const sleep = ms => new Promise(r => setTimeout(r, ms));
+
+            async function runTerminal() {
+                let i = 0;
+                while (true) {
+                    const { cmd, out } = commands[i];
+                    typedEl.textContent = '';
+                    outEl.innerHTML = '';
+
+                    for (const ch of cmd) {            // type the command
+                        typedEl.textContent += ch;
+                        await sleep(80);
+                    }
+                    await sleep(400);
+
+                    for (const line of out) {          // print the output lines
+                        const div = document.createElement('div');
+                        div.className = 'out-line';
+                        div.textContent = line;
+                        outEl.appendChild(div);
+                        await sleep(250);
+                    }
+
+                    await sleep(2200);                 // pause, then next command
+                    i = (i + 1) % commands.length;
+                }
+            }
+
+            runTerminal();
+        </script>
+    </body>
 
 </html>
