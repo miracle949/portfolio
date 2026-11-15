@@ -71,7 +71,7 @@ html {
     align-items: center;
     padding: 1rem 2rem;
     width: 100%;
-    max-width: 1125px;
+    max-width: 1180px;
     /* width: 100%; */
     border-radius: 10px;
     /* border: 1px solid var(--border); */
@@ -1882,7 +1882,7 @@ img {
     }
 
     .container-fluid nav .nav-sub {
-        width: 1200px;
+        max-width: 1125px;
     }
 
     .container-fluid .section1 {
