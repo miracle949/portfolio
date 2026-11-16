@@ -12,9 +12,8 @@
 
 <body>
 
-    <!-- <body class="loading"> -->
+    <body class="loading">
 
-    <body>
 
         <!-- ===== PRELOADER ===== -->
         <div class="preloader" id="preloader">
@@ -686,9 +685,214 @@
             <span class="btt-inner"><i class="fa-solid fa-arrow-up"></i></span>
         </button>
 
+        <!-- ===== PROJECT POPUP ===== -->
+        <div class="pm" id="projectModal" aria-hidden="true">
+            <div class="pm-backdrop" data-close></div>
+
+            <div class="pm-window" role="dialog" aria-modal="true" aria-labelledby="pmTitle">
+                <div class="pm-bar">
+                    <div class="pm-dots"><span></span><span></span><span></span></div>
+                    <span class="pm-path" id="pmPath">~/projects</span>
+                    <button class="pm-close" data-close aria-label="Close project">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+
+                <div class="pm-scroll" id="pmScroll">
+                    <div class="pm-shot" id="pmShot">
+                        <span class="pm-counter" id="pmCounter"></span>
+                    </div>
+
+                    <div class="pm-body">
+                        <h3 id="pmTitle"></h3>
+                        <p class="pm-desc" id="pmDesc"></p>
+
+                        <h5 class="pm-label"><i class="fa-solid fa-code"></i> Built with</h5>
+                        <div class="pm-tech" id="pmTech"></div>
+
+                        <h5 class="pm-label"><i class="fa-solid fa-terminal"></i> Highlights</h5>
+                        <ul class="pm-features" id="pmFeatures"></ul>
+
+                        <div class="pm-actions" id="pmActions">
+                            <a class="pm-btn primary" id="pmDemo" href="#" target="_blank" rel="noopener">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i> Live Demo
+                            </a>
+                            <a class="pm-btn" id="pmCode" href="#" target="_blank" rel="noopener">
+                                <i class="fa-brands fa-github"></i> Source Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pm-nav">
+                    <button id="pmPrev"><i class="fa-solid fa-arrow-left"></i> Prev</button>
+                    <span class="pm-hint">Esc to close · ← → to browse</span>
+                    <button id="pmNext">Next <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+            </div>
+        </div>
+
 
 
         <!-- <script src="script.js"></script> -->
+
+        <script>
+            // ===== Project popup =====
+            (function () {
+                const modal = document.getElementById('projectModal');
+                const win = modal.querySelector('.pm-window');
+                const scroller = document.getElementById('pmScroll');
+                const cards = [...document.querySelectorAll('.project')];
+
+                // Edit these. Same order as your project cards.
+                // Leave demo / code as '' to hide that button.
+                const extra = [
+                    {
+                        desc: 'A web platform where teachers post lessons and activities and students submit their work online.',
+                        features: ['Student and teacher accounts', 'Lesson and activity posting', 'Online submissions'],
+                        demo: '', code: ''
+                    },
+                    {
+                        desc: 'A system for managing cooperative members, loans, savings and payments in one place.',
+                        features: ['Member records', 'Loans and savings tracking', 'Built with Laravel'],
+                        demo: '', code: ''
+                    },
+                    {
+                        desc: 'A fun two-player Jack en Poy (rock-paper-scissors) game that runs in the browser.',
+                        features: ['Two-player mode', 'Score tracking', 'Playful animations'],
+                        demo: '', code: ''
+                    },
+                    {
+                        desc: 'A timed quiz game with a Jollibee theme. Answer fast to beat the Jolly Rush Hour challenge.',
+                        features: ['Timed questions', 'Score at the end', 'Themed interface'],
+                        demo: '', code: ''
+                    },
+                    {
+                        desc: 'A payroll system for managing employees, attendance and monthly reports.',
+                        features: ['Employee records', 'Attendance report', 'Dashboard summary'],
+                        demo: '', code: ''
+                    },
+                    {
+                        desc: 'A records system for storing, searching and updating student information.',
+                        features: ['Add, edit and delete records', 'Search and filter', 'Student photos'],
+                        demo: '', code: ''
+                    },
+                    {
+                        desc: 'A warm, handmade-style website for a crochet shop, with products and lessons.',
+                        features: ['Product showcase', 'Responsive layout', 'Custom design'],
+                        demo: '', code: ''
+                    },
+                    {
+                        desc: 'An inventory system for tracking products, stock levels and categories.',
+                        features: ['Product management', 'Stock tracking', 'Dashboard sidebar'],
+                        demo: '', code: ''
+                    }
+                ];
+
+                const $ = id => document.getElementById(id);
+                const el = {
+                    title: $('pmTitle'), path: $('pmPath'), desc: $('pmDesc'), shot: $('pmShot'),
+                    counter: $('pmCounter'), tech: $('pmTech'), features: $('pmFeatures'),
+                    actions: $('pmActions'), demo: $('pmDemo'), code: $('pmCode')
+                };
+
+                let current = 0;
+                let lastFocus = null;
+
+                function setLink(a, url) {
+                    a.hidden = !url;
+                    if (url) a.href = url;
+                }
+
+                function fill(i) {
+                    const card = cards[i];
+                    const d = extra[i] || {};
+                    const title = card.querySelector('.body h4').textContent.trim();
+                    const slug = title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+                    el.title.textContent = title;
+                    el.path.textContent = '~/projects/' + slug;
+                    el.desc.textContent = d.desc || card.querySelector('.body p').textContent.trim();
+                    el.shot.style.backgroundImage = getComputedStyle(card.querySelector('.header')).backgroundImage;
+                    el.counter.textContent = String(i + 1).padStart(2, '0') + ' / ' + String(cards.length).padStart(2, '0');
+
+                    el.tech.innerHTML = '';
+                    card.querySelectorAll('.tech').forEach(t => {
+                        const s = document.createElement('span');
+                        s.textContent = t.textContent.trim();
+                        el.tech.appendChild(s);
+                    });
+
+                    el.features.innerHTML = '';
+                    (d.features || []).forEach(f => {
+                        const li = document.createElement('li');
+                        li.textContent = f;
+                        el.features.appendChild(li);
+                    });
+                    el.features.previousElementSibling.hidden = !(d.features && d.features.length);
+                    el.features.hidden = !(d.features && d.features.length);
+
+                    setLink(el.demo, d.demo);
+                    setLink(el.code, d.code);
+                    el.actions.hidden = !d.demo && !d.code;
+                }
+
+                function replay() {
+                    scroller.scrollTop = 0;
+                    scroller.classList.remove('swap');
+                    void scroller.offsetWidth;            // restart the animation
+                    scroller.classList.add('swap');
+                }
+
+                function open(i) {
+                    current = i;
+                    fill(i);
+                    lastFocus = document.activeElement;
+                    modal.classList.add('open');
+                    modal.setAttribute('aria-hidden', 'false');
+                    document.documentElement.classList.add('pm-lock');
+                    replay();
+                    modal.querySelector('.pm-close').focus();
+                }
+
+                function close() {
+                    modal.classList.remove('open');
+                    modal.setAttribute('aria-hidden', 'true');
+                    document.documentElement.classList.remove('pm-lock');
+                    if (lastFocus) lastFocus.focus();
+                }
+
+                function go(step) {
+                    current = (current + step + cards.length) % cards.length;
+                    fill(current);
+                    replay();
+                }
+
+                cards.forEach((card, i) => {
+                    const btn = card.querySelector('.body button');
+                    if (btn) btn.addEventListener('click', () => open(i));
+                });
+
+                modal.querySelectorAll('[data-close]').forEach(b => b.addEventListener('click', close));
+                $('pmPrev').addEventListener('click', () => go(-1));
+                $('pmNext').addEventListener('click', () => go(1));
+
+                document.addEventListener('keydown', e => {
+                    if (!modal.classList.contains('open')) return;
+                    if (e.key === 'Escape') close();
+                    if (e.key === 'ArrowLeft') go(-1);
+                    if (e.key === 'ArrowRight') go(1);
+
+                    // keep Tab inside the popup
+                    if (e.key === 'Tab') {
+                        const f = [...win.querySelectorAll('button, a[href]')].filter(x => x.offsetParent !== null);
+                        const first = f[0], last = f[f.length - 1];
+                        if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+                        else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+                    }
+                });
+            })();
+        </script>
 
         <script>
             // ===== Mobile menu =====
